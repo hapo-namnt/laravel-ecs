@@ -94,6 +94,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.web-task-def.outputs.task-definition }}
-          service: testserviceelb
-          cluster: testelb
+          service: test
+          cluster: simple-app
           wait-for-service-stability: true
