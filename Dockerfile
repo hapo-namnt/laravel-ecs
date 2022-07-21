@@ -43,12 +43,10 @@ COPY composer.json composer.lock ./
 
 RUN composer install --no-autoloader --no-scripts --no-interaction
 
-COPY . ${APP_HOME}
-
-RUN composer dump-autoload --optimize --no-interaction
-
 # Copy existing application directory contents
 COPY . /var/www
+
+RUN composer dump-autoload --optimize --no-interaction
 
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
